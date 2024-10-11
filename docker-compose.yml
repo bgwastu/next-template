@@ -6,7 +6,7 @@ services:
     shm_size: 1g
     restart: unless-stopped
     volumes:
-      - .data/db:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
     ports:
       - 5432:5432
     environment:
@@ -17,3 +17,10 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  web:
+    build: .
+    ports:
+      - 3000:3000
+
+volumes:
+  db_data:
