@@ -18,7 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fontBody.variable} ${fontHeading.variable}`}>
+    <html
+      lang="en"
+      className={`${fontBody.variable} ${fontHeading.variable}`}
+      data-mantine-color-scheme="light"
+    >
       <head>
         <ColorSchemeScript />
       </head>

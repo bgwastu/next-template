@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -15,36 +15,42 @@
     "db:migrate": "drizzle-kit migrate"
   },
   "dependencies": {
-    "@mantine/core": "^7.13.1",
-    "@mantine/form": "^7.13.1",
-    "@mantine/hooks": "^7.13.1",
-    "@mantine/notifications": "^7.13.1",
+    "@mantine/core": "^7.13.3",
+    "@mantine/form": "^7.13.3",
+    "@mantine/hooks": "^7.13.3",
+    "@mantine/notifications": "^7.13.3",
     "@tabler/icons-react": "^3.19.0",
     "@types/pg": "^8.11.10",
-    "drizzle-orm": "^0.33.0",
-    "next": "14.2.13",
+    "drizzle-orm": "^0.35.3",
+    "next": "15.0.1-canary.1",
     "pg": "^8.13.0",
-    "posthog-js": "^1.167.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwind-merge": "^2.5.3",
-    "tailwind-preset-mantine": "^1.0.5"
+    "posthog-js": "^1.174.2",
+    "react": "19.0.0-rc-69d4b800-20241021",
+    "react-dom": "19.0.0-rc-69d4b800-20241021",
+    "tailwind-merge": "^2.5.4",
+    "tailwind-preset-mantine": "^1.2.1"
   },
   "devDependencies": {
-    "@types/node": "^22.7.4",
-    "@types/react": "^18.3.10",
-    "@types/react-dom": "^18.3.0",
+    "@types/node": "^22.7.7",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "autoprefixer": "^10.4.20",
-    "drizzle-kit": "^0.24.2",
-    "eslint": "^8.57.1",
-    "eslint-config-next": "14.2.13",
+    "drizzle-kit": "^0.26.2",
+    "eslint": "^9.13.0",
+    "eslint-config-next": "15.0.0",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.1.6",
     "postcss": "^8.4.47",
     "postcss-preset-mantine": "^1.17.0",
     "postcss-simple-vars": "^7.0.1",
     "prettier": "^3.3.3",
-    "tailwindcss": "^3.4.13",
-    "typescript": "^5.6.2"
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.1",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    }
   }
 }
