@@ -25,9 +25,14 @@ RUN npm install -g pnpm
 # Set the working directory
 WORKDIR /app
 
-# Copy the necessary files from the builder stage for the standalone build
-COPY --from=builder /app/.next/standalone ./
+# Copy the necessary files from the builder stage
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/pnpm-lock.yaml ./pnpm-lock.yaml
+
+# Install only production dependencies
+RUN pnpm install --prod
 
 # Start the application
-CMD ["node", "server.js"]
-
+CMD ["pnpm", "run", "start"]Ø
