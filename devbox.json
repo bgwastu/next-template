@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.5/.schema/devbox.schema.json",
-  "packages": ["nodejs@latest", "pnpm@latest", "postgresql@latest"],
+  "packages": ["nodejs@20", "pnpm@latest", "postgresql@latest"],
   "shell": {
     "scripts": {
       "init_local_db": "rm -rf .devbox/virtenv/postgresql/data && initdb -D .devbox/virtenv/postgresql/data"
