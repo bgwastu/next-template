@@ -9,7 +9,6 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write .",
-    "prepare": "husky",
     "db:studio": "drizzle-kit studio",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate"
@@ -39,7 +38,6 @@
     "eslint": "^9.13.0",
     "eslint-config-next": "15.0.0",
     "eslint-config-prettier": "^9.1.0",
-    "husky": "^9.1.6",
     "postcss": "^8.4.47",
     "postcss-preset-mantine": "^1.17.0",
     "postcss-simple-vars": "^7.0.1",
