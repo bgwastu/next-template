@@ -21,10 +21,10 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${fontBody.variable} ${fontHeading.variable}`}
-      data-mantine-color-scheme="light"
+      suppressHydrationWarning
     >
       <head>
-        <ColorSchemeScript />
+        <ColorSchemeScript defaultColorScheme="auto" />
       </head>
       <PHProvider>
         <PostHogPageView />
