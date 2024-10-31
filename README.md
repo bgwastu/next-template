@@ -36,9 +36,3 @@ A comprehensive and opinionated starter kit for creating modern web projects wit
 - `db:studio`: Start Drizzle Studio
 - `db:generate`: Generate Drizzle migrations
 - `db:migrate`: Run Drizzle migrations
-
-## Database Setup
-
-1. Ensure Docker and Docker Compose are installed on your system
-2. Run `docker-compose up -d` to start the PostgreSQL container
-3. Use the provided Drizzle commands to manage your database schema
