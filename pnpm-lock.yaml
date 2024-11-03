@@ -30,6 +30,9 @@ importers:
       '@types/pg':
         specifier: ^8.11.10
         version: 8.11.10
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       drizzle-orm:
         specifier: ^0.36.0
         version: 0.36.0(@libsql/client-wasm@0.14.0)(@types/pg@8.11.10)(pg@8.13.1)(react@19.0.0-rc-603e6108-20241029)(types-react@19.0.0-rc.1)
