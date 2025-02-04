@@ -1,40 +1,61 @@
-import PostHogPageView from "@/components/posthog-pageview";
-import { PHProvider } from "@/components/posthog-provider";
-import { APP_DESCRIPTION, APP_NAME, fontBody, fontHeading } from "@/config";
-import { theme } from "@/theme";
-import { ColorSchemeScript, MantineProvider } from "@mantine/core";
-import { Notifications } from "@mantine/notifications";
 import type { Metadata } from "next";
+import { Geist } from "next/font/google";
 import "./globals.css";
 
+import {
+  AUTHOR_NAME,
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+  SITE_NAME,
+  SITE_URL,
+} from "@/config";
+
+const geist = Geist({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
-  title: APP_NAME,
-  description: APP_DESCRIPTION,
+  title: {
+    default: SITE_NAME,
+    template: `%s - ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  metadataBase: new URL(SITE_URL),
+  keywords: SITE_KEYWORDS,
+  authors: [{ name: AUTHOR_NAME }],
+  creator: AUTHOR_NAME,
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    siteName: SITE_NAME,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
-export default function RootLayout({
+export default async function BaseLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html
-      lang="en"
-      className={`${fontBody.variable} ${fontHeading.variable}`}
-      suppressHydrationWarning
-    >
-      <head>
-        <ColorSchemeScript defaultColorScheme="auto" />
-      </head>
-      <PHProvider>
-        <PostHogPageView />
-        <body className="antialiased">
-          <MantineProvider theme={theme} withCssVariables>
-            <Notifications />
-            {children}
-          </MantineProvider>
-        </body>
-      </PHProvider>
+    <html lang="en">
+      <body className={geist.className}>{children}</body>
     </html>
   );
 }

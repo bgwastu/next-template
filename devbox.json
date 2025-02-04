@@ -1,10 +1,14 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.5/.schema/devbox.schema.json",
-  "packages": ["nodejs@20", "pnpm@latest", "postgresql@latest"],
+  "packages": [
+    "nodejs@20",
+    "bun@latest",
+    "postgresql@latest",
+    "process-compose@latest"
+  ],
   "shell": {
     "init_hook": [
-      "export PGHOST=./.devbox/virtenv/postgresql",
-      "export PGDATA=./.devbox/virtenv/postgresql/data"
+      "test -f .devbox/virtenv/postgresql/data/PG_VERSION && test -d .devbox/virtenv/postgresql/data/base || initdb"
     ]
   }
 }

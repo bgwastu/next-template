@@ -1,0 +1,22 @@
+version: "0.5"
+
+processes:
+  web:
+    command: pnpm run dev
+    availability:
+      restart: always
+  postgresql:
+    command: postgres
+    readiness_probe:
+      exec:
+        command: pg_isready -h localhost -p 5432 -U postgres -d local
+
+  init_db:
+    namespace: init
+    command: |
+      sh config/init-db.sh
+    depends_on:
+      postgresql:
+        condition: process_healthy
+  drizzle-studio:
+    command: pnpm run db:studio
