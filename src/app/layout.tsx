@@ -9,6 +9,10 @@ import {
   SITE_NAME,
   SITE_URL,
 } from "@/config";
+import { cn } from "@/utils";
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import Head from "next/head";
+import { theme } from "@/theme";
 
 const geist = Geist({ subsets: ["latin"] });
 
@@ -54,8 +58,13 @@ export default async function BaseLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={geist.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <Head>
+        <ColorSchemeScript />
+      </Head>
+      <body className={cn(geist.className, "antialiased")}>
+        <MantineProvider theme={theme}>{children}</MantineProvider>
+      </body>
     </html>
   );
 }

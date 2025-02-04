@@ -1,11 +1,10 @@
-@import "tailwindcss";
+@layer tw_base, mantine, tw_components, tw_utilities;
 
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-}
+/* import tailwind */
+@import "tailwindcss/base" layer(tw_base);
+@import "tailwindcss/components" layer(tw_components);
+@import "tailwindcss/utilities" layer(tw_utilities);
+
+/* import mantine */
+@import "@mantine/core/styles.layer.css";
+@import "@mantine/notifications/styles.css";
