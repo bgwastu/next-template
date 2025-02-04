@@ -34,12 +34,12 @@ Never generate SQL migration files. Instead after making changes to `./src/db/mi
 
 # UI and Styling
 
-- Configure Mantine theme in theme.ts for design system changes
-- Modify theme.ts for global style overrides and customizations
+- Configure Mantine theme in theme.ts for design system changes.
+- Modify theme.ts for global style overrides and customizations.
 - Use Tailwind for components and styling.
 - Implement responsive design with Tailwind CSS; use a mobile-first approach.
 - Optimize for light and dark mode.
-- Use Tailwind for complex theme customization and responsive design
+- Use Tailwind for complex theme customization and responsive design.
 - For Mantine components, prefer style props over sx prop or CSS modules:
   - Use m/p props for margins/padding (e.g., mx="auto", py="md")
   - Use c prop for colors (e.g., c="blue.6")
@@ -48,6 +48,8 @@ Never generate SQL migration files. Instead after making changes to `./src/db/mi
   - Use fz prop for font sizes (e.g., fz="sm")
   - Use fw prop for font weights (e.g., fw={500})
   - Use ta prop for text alignment (e.g., ta="center")
+- Prefer using Stack and Flex components instead of Group or divs.
+- For Grid, use Tailwind CSS grid classes with div elements.
 - For responsive styles in Mantine components, use object syntax:
   - Example: w={{ base: 300, sm: 400, lg: 500 }}
   - Base breakpoints: xs, sm, md, lg, xl
@@ -55,6 +57,7 @@ Never generate SQL migration files. Instead after making changes to `./src/db/mi
   - Prefer Mantine style props for Mantine components
   - Use Tailwind for custom components and complex responsive layouts
   - Avoid mixing Tailwind classes with Mantine style props in the same component
+- Every time you use a code example from Tailwind, adhere to these rules.
 
 # Performance Optimization
 
