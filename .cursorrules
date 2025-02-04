@@ -2,7 +2,8 @@ You are an expert in TypeScript, Node.js, Next.js App Router, React, Tailwind CS
 
 Never generate SQL migration files. Instead after making changes to `./src/db/migrations` you should run `pnpm db:migrate [MIGRATION_NAME]` to generate the migrations.
 
-Code Style and Structure
+# Code Style and Structure
+
 - Write concise, technical TypeScript code with accurate examples.
 - Use functional and declarative programming patterns; avoid classes.
 - Prefer iteration and modularization over code duplication.
@@ -11,33 +12,59 @@ Code Style and Structure
 - When using a "container" class, use the "mx-auto" class to center the content.
 - Never delete any comments in the code unless they are no longer relevant.
 - When a fuction has more than 1 parameter, always pass them as a named object.
+- Use Bun for all package management and build tasks.
 
-Naming Conventions
+# Naming Conventions
+
 - Use lowercase with dashes for directories (e.g., components/auth-wizard).
 - Favor named exports for components.
+- Use PascalCase for component names (only for components, not for files).
 
-TypeScript Usage
+# TypeScript Usage
+
 - Use TypeScript for all code; prefer interfaces over types.
 - Avoid enums; use maps instead.
 - Use functional components with TypeScript interfaces.
 
-Syntax and Formatting
+# Syntax and Formatting
+
 - Use the "function" keyword for pure functions.
 - Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements.
 - Use declarative JSX.
 
-UI and Styling
+# UI and Styling
+
+- Configure Mantine theme in theme.ts for design system changes
+- Modify theme.ts for global style overrides and customizations
 - Use Tailwind for components and styling.
 - Implement responsive design with Tailwind CSS; use a mobile-first approach.
 - Optimize for light and dark mode.
+- Use Tailwind for complex theme customization and responsive design
+- For Mantine components, prefer style props over sx prop or CSS modules:
+  - Use m/p props for margins/padding (e.g., mx="auto", py="md")
+  - Use c prop for colors (e.g., c="blue.6")
+  - Use bg prop for backgrounds (e.g., bg="gray.1")
+  - Use w/h props for dimensions (e.g., w={200}, maw={400})
+  - Use fz prop for font sizes (e.g., fz="sm")
+  - Use fw prop for font weights (e.g., fw={500})
+  - Use ta prop for text alignment (e.g., ta="center")
+- For responsive styles in Mantine components, use object syntax:
+  - Example: w={{ base: 300, sm: 400, lg: 500 }}
+  - Base breakpoints: xs, sm, md, lg, xl
+- When using both Mantine and Tailwind:
+  - Prefer Mantine style props for Mantine components
+  - Use Tailwind for custom components and complex responsive layouts
+  - Avoid mixing Tailwind classes with Mantine style props in the same component
 
-Performance Optimization
+# Performance Optimization
+
 - Minimize 'use client', 'useEffect', and 'setState'; favor React Server Components (RSC).
 - Wrap client components in Suspense with fallback.
 - Use dynamic loading for non-critical components.
 - Optimize images: use WebP format, include size data, implement lazy loading.
 
-Key Conventions
+# Key Conventions
+
 - Use 'nuqs' for URL search parameter state management.
 - Optimize Web Vitals (LCP, CLS, FID).
 - Limit 'use client':
@@ -46,3 +73,19 @@ Key Conventions
 - Avoid for data fetching or state management.
 
 Follow Next.js docs for Data Fetching, Rendering, and Routing.
+
+# Server Actions and File Organization
+
+- Use next-safe-action for type-safe server actions
+- Colocate server action files with their respective pages using \*.action.ts naming
+- Follow directory structure:
+  ```
+  /[app-route]
+    - page.tsx           # Server Component page
+    - *.action.ts        # Server actions (e.g., create-user.action.ts)
+    - components/        # Client components specific to this route
+  ```
+- Only move code to global components/ if it's reused across multiple routes
+- Keep route-specific components colocated within their route directory
+- Server action files should be focused and single-purpose
+- Use descriptive action names that reflect their functionality
