@@ -92,3 +92,4 @@ Follow Next.js docs for Data Fetching, Rendering, and Routing.
 - Keep route-specific components colocated within their route directory
 - Server action files should be focused and single-purpose
 - Use descriptive action names that reflect their functionality
+- Always include "use server" at the top of server action files.

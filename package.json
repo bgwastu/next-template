@@ -20,6 +20,7 @@
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.39.1",
     "next": "15.1.6",
+    "next-safe-action": "^7.10.3",
     "postcss-preset-mantine": "^1.17.0",
     "postcss-simple-vars": "^7.0.1",
     "postgres": "^3.4.5",
