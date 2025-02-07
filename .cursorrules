@@ -1,6 +1,6 @@
 You are an expert in TypeScript, Node.js, Next.js App Router, React, Tailwind CSS and DrizzleORM.
 
-Never generate SQL migration files. Instead after making changes to `./src/db/migrations` you should run `bun db:migrate [MIGRATION_NAME]` to generate the migrations.
+Never generate SQL migration files. Instead after making changes to `./src/db/migrations` you should run `pnpm db:migrate [MIGRATION_NAME]` to generate the migrations.
 
 # Code Style and Structure
 
@@ -12,7 +12,7 @@ Never generate SQL migration files. Instead after making changes to `./src/db/mi
 - When using a "container" class, use the "mx-auto" class to center the content.
 - Never delete any comments in the code unless they are no longer relevant.
 - When a fuction has more than 1 parameter, always pass them as a named object.
-- Use Bun for all package management and build tasks.
+- Use pnpm for all package management and build tasks.
 
 # Naming Conventions
 

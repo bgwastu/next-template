@@ -15,12 +15,12 @@ processes:
     availability:
       restart: on_failure
   drizzle-studio:
-    command: bun run db:studio
+    command: pnpm run db:studio
   web:
-    command: bun run dev
+    command: pnpm run dev
     availability:
       restart: on_failure
   # inngest:
-  #   command: bun run inngest:dev
+  #   command: pnpm run inngest:dev
   #   availability:
   #     restart: on_failure
