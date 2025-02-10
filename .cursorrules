@@ -25,7 +25,8 @@ You are an expert in TypeScript, Node.js, Next.js App Router, React, Mantine, Ta
 
 - Use lowercase with dashes for directories (e.g., components/auth-wizard)
 - Favor named exports
-- Colocate route-specific code (actions, components, hooks)
+- Avoid creating new components or hooks directly in page files whenever possible.
+- Colocate types and zod schemas with their respective action, query, or component files when possible.
 - Move to global directories (src/actions, src/components, src/hooks) only if:
   - Used across multiple routes
   - Part of core infrastructure
@@ -34,8 +35,11 @@ You are an expert in TypeScript, Node.js, Next.js App Router, React, Mantine, Ta
   - It's used across multiple routes
   - It's part of the core application infrastructure
   - It needs to be shared between unrelated features
+- All of the app name or config is on the config.ts file
+- All of the AI service is on the src/ai.ts file
+- All of the database schema is on the db/schema.ts file
 
-Route Structure:
+- Route Structure:
 
 ```
 /app
@@ -48,6 +52,13 @@ Route Structure:
       - [feature]-form.tsx
     - hooks/               # Feature-specific hooks (if the hooks is not available on Mantine)
       - use-[feature].ts
+  - config.ts               # App config
+  - theme.ts                # Mantine theme
+  - safe-action.ts          # Next-safe-action config
+  - ai.ts                   # AI service and models
+  - db/
+    - schema.ts             # DrizzleORM schema
+
 ```
 
 # Server Components and Actions
@@ -182,6 +193,7 @@ export const featureAction = actionClient
   - ta for text alignment (ta="center")
 - If using Mantine props is not possible, use Tailwind for custom components and complex layouts
 - If possible, use Mantine <Stack>, <Flex> and <Container> components instead of Tailwind divs.
+- Do not use <Group> component, use <Flex> instead.
 - For Grid, use Tailwind CSS grid classes. Do not use Mantine Grid.
 - Use Mantine Notification component for notification and toast messages.
 
